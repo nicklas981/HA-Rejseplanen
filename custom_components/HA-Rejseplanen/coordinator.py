@@ -21,7 +21,7 @@ class RejseplanenCoordinator(DataUpdateCoordinator):
         super().__init__(
             hass,
             _LOGGER,
-            name="rejseplanen2",
+            name="HA-Rejseplanen",
             update_interval=timedelta(
                 seconds=entry.options.get(CONF_SCAN_INTERVAL, DEFAULT_SCAN_INTERVAL)
             ),
