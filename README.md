@@ -1,4 +1,6 @@
-# Rejseplanen 2 for Home Assistant
+# HA-Rejseplanen for Home Assistant
+
+*** dette er ikke et færdigt projekt! ***
 
 Viser afgange fra danske stoppesteder via Rejseplanen API 2.0.
 (HA's indbyggede rejseplanen-integration døde, da API 1.0 lukkede i december 2024.)
