@@ -1,0 +1,35 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "HA-Rejseplanen",
+        "data": {
+          "access_id": "API-nøgle (accessId)",
+          "search": "Søg stoppested"
+        }
+      },
+      "stop": {
+        "title": "Vælg stoppested",
+        "data": { "stop_id": "Stoppested" }
+      }
+    },
+    "error": {
+      "invalid_auth": "Ugyldig API-nøgle",
+      "no_stops": "Ingen stoppesteder fundet"
+    },
+    "abort": {
+      "already_configured": "Stoppet er allerede tilføjet"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Indstillinger",
+        "data": {
+          "scan_interval": "Opdateringsinterval (sekunder)",
+          "lines": "Linjefilter (kommasepareret, tom = alle)"
+        }
+      }
+    }
+  }
+}
