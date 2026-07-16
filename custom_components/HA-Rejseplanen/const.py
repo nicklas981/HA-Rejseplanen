@@ -1,5 +1,5 @@
 """Delte konstanter."""
-DOMAIN = "rejseplanen2"
+DOMAIN = "HA-Rejseplanen"
 
 CONF_ACCESS_ID = "access_id"
 CONF_STOP_ID = "stop_id"
