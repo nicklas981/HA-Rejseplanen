@@ -1,0 +1,132 @@
+search_stops:
+  name: Søg stoppesteder
+  description: Find stoppesteder ud fra en fritekst-søgning.
+  fields:
+    query:
+      name: Søgetekst
+      description: Navn på stop eller station
+      required: true
+      example: "Svendborg"
+      selector:
+        text:
+
+find_trip:
+  name: Find rejse
+  description: >-
+    Find rejser mellem to steder (stop eller adresse). Origin kan udelades -
+    så bruges Home Assistants hjemzone som udgangspunkt.
+  fields:
+    destination:
+      name: Destination
+      description: Slutsted - stop eller adresse (slås op automatisk)
+      required: true
+      example: "Drejø Havn"
+      selector:
+        text:
+    origin:
+      name: Fra (start)
+      description: >-
+        Startsted - stop eller adresse. Tom = Home Assistants hjemzone.
+      example: "Odense St."
+      selector:
+        text:
+    arrive_by:
+      name: Ankomst senest (HH:MM)
+      description: Find rejser der ankommer senest på dette tidspunkt.
+      example: "14:00"
+      selector:
+        text:
+    depart_at:
+      name: Afgang tidligst (HH:MM)
+      description: Find rejser der afgår fra dette tidspunkt.
+      example: "08:00"
+      selector:
+        text:
+    date:
+      name: Dato
+      description: Rejsedato. Tom = i dag.
+      example: "2026-07-20"
+      selector:
+        date:
+    buffer:
+      name: Buffer (min)
+      description: Vær fremme så mange minutter før ankomsttiden.
+      selector:
+        number:
+          min: 0
+          max: 120
+          unit_of_measurement: min
+    min_change_time:
+      name: Min. skiftetid (min)
+      description: Mindste tid ved hvert skift.
+      selector:
+        number:
+          min: 0
+          max: 120
+          unit_of_measurement: min
+    max_changes:
+      name: Maks. antal skift
+      description: Undgå rejser med flere skift end dette.
+      selector:
+        number:
+          min: 0
+          max: 5
+          unit_of_measurement: skift
+    avoid:
+      name: Undgå transportformer
+      description: Rejser der bruger de valgte former frasorteres.
+      selector:
+        select:
+          multiple: true
+          options:
+            - label: Tog
+              value: tog
+            - label: Bus
+              value: bus
+            - label: Færge
+              value: faerge
+            - label: Metro
+              value: metro
+            - label: Letbane
+              value: letbane
+    max_results:
+      name: Antal rejser
+      description: Hvor mange rejseforslag der returneres (standard 1).
+      selector:
+        number:
+          min: 1
+          max: 6
+          unit_of_measurement: rejser
+    detailed:
+      name: Detaljeret plan
+      description: Vis tider, stop og gåture for hvert skift (tog, færge, bus).
+      selector:
+        boolean:
+
+departures:
+  name: Afgangstavle
+  description: Vis kommende afgange fra et stop (on-demand).
+  fields:
+    stop:
+      name: Stop
+      description: Stoppested eller station.
+      required: true
+      example: "Odense St."
+      selector:
+        text:
+    duration:
+      name: Tidsvindue (min)
+      description: Hvor mange minutter frem der hentes.
+      selector:
+        number:
+          min: 10
+          max: 360
+          unit_of_measurement: min
+    max_results:
+      name: Antal afgange
+      description: Hvor mange afgange der returneres (standard 5).
+      selector:
+        number:
+          min: 1
+          max: 20
+          unit_of_measurement: afgange
